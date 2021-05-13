@@ -10,6 +10,7 @@ package threadPools;
  * @author carli
  */
 public class Cliente {
+    
     private String nombre;
     private int canti_boletos;
     private String nom_peli;

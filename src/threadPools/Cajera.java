@@ -17,7 +17,7 @@ public class Cajera implements Runnable {
     private int num_client = 0;
     private Cliente cl;
     private Pelicula[] p;
-private int tiempo;
+    private int tiempo;
 
     public Cajera(String name, Cliente cl, Pelicula[] p) {
         this.name = name;
@@ -29,8 +29,8 @@ private int tiempo;
         this.name = name;
         this.p = p;
     }
-    
-    public Cajera(String name, Pelicula[] p,Cliente cl) {
+
+    public Cajera(String name, Pelicula[] p, Cliente cl) {
         this.name = name;
         this.p = p;
         this.cl = cl;
@@ -85,11 +85,11 @@ private int tiempo;
             num_client++;
             System.out.println(salida);
             cl.setAtendido(true);
-           // System.out.println("La cajera " + name + " atendió :> " + num_client + " clientes");
+            // System.out.println("La cajera " + name + " atendió :> " + num_client + " clientes");
         }
     }
-    
-    public void imprimir(){
+
+    public void imprimir() {
         System.out.println("La cajera " + name + " atendió :> " + num_client + " clientes");
     }
 

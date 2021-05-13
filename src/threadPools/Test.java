@@ -23,7 +23,18 @@ public class Test {
         //Cajera[] cajs = {new Cajera("Valentina"),new Cajera("Rosalba"),new Cajera("Juana"),new Cajera("Romina"),new Cajera("Carol G")};
 
         ArrayList<Cliente> clientes = new ArrayList<>();
-        Cliente[] cl = {new Cliente("Raúl", 3, "Fast&Furious"), new Cliente("Juan", 1, "Snoopy"), new Cliente("Pedro", 5, "Shrek"), new Cliente("Fer", 2, "Shrek 2"), new Cliente("Daniela", 6, "Frozen"), new Cliente("Mariana", 3, "La sirenita"), new Cliente("Ximena", 7, "Cinderella"), new Cliente("Rito", 1, "Fast&Furious")};
+        Cliente[] cl = {new Cliente("Raúl", 3, "Fast&Furious"),
+            new Cliente("Juan", 1, "Snoopy"),
+            new Cliente("Pedro", 5, "Shrek"),
+            new Cliente("Mario", 2, "Shrek 2"),
+            new Cliente("César", 8, "Shrek"),
+            new Cliente("Jorge", 2, "Fast&Furious"),
+            new Cliente("Carlitos", 1, "Frozen"),
+            new Cliente("Fer", 2, "Shrek 2"),
+            new Cliente("Daniela", 6, "Frozen"),
+            new Cliente("Mariana", 3, "La sirenita"), 
+            new Cliente("Ximena", 7, "Cinderella"),
+            new Cliente("Rito", 1, "Fast&Furious")};
         for (int i = 0; i < cl.length; i++) {
             clientes.add(cl[i]);
         }
@@ -41,6 +52,7 @@ public class Test {
             //cajs[ne].setCl(clientes.get(pos));
             Cajera cajerita = new Cajera(cajs[ne].getName(), p, clientes.get(pos));
             cajs[ne].setNum_client(1);
+            cajs[ne].setCl( clientes.get(pos));
             //Cajera aux = cajerita;
 
             clientes.remove(pos);
@@ -49,7 +61,7 @@ public class Test {
                 int t = ((int)(Math.random()*5)+3)*1000;
                 Thread.sleep(t);
                  cajs[ne].setTiempo(t/1000);
-            System.out.println("5. La cajera " + cajs[ne].getName() + " atendió  en : " + cajs[ne].getTiempo() + " segs");
+            System.out.println("5. La cajera " + cajs[ne].getName() + " atendió  a: "+ cajs[ne].getCl().getNombre() +" en "+ cajs[ne].getTiempo() + " segs");
             } catch (InterruptedException ex) {
                 Logger.getLogger(Hilo.class.getName()).log(Level.SEVERE, null, ex);
             }
