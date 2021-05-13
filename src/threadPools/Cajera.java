@@ -1,15 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package threadPools;
 
 import java.util.Random;
 
 /**
  *
- * @author carli
+ * Nombre: Carlos Obrian Delgado Ortiz, José Fernando Perea Macías
+ * Tema del programa: Cajera
+ * Descripción: Es el hilo que se encarga de atender a los clientes 
+ * Fecha: 13/05/2021
  */
 public class Cajera implements Runnable {
 
@@ -87,10 +85,6 @@ public class Cajera implements Runnable {
             cl.setAtendido(true);
             // System.out.println("La cajera " + name + " atendió :> " + num_client + " clientes");
         }
-    }
-
-    public void imprimir() {
-        System.out.println("La cajera " + name + " atendió :> " + num_client + " clientes");
     }
 
 }

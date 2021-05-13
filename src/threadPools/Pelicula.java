@@ -1,13 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package threadPools;
 
 /**
  *
- * @author carli
+ * Nombre: Carlos Obrian Delgado Ortiz, José Fernando Perea Macías
+ * Tema del programa: Pelicula
+ * Descripción: Para crear las peliculas que están disponibles en el cine 
+ * Fecha: 13/05/2021
  */
 public class Pelicula {
     private String nombre;

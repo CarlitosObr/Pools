@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package threadPools;
 
 import java.util.ArrayList;
@@ -15,7 +10,10 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author carli
+ * Nombre: Carlos Obrian Delgado Ortiz, José Fernando Perea Macías
+ * Tema del programa: Test
+ * Descripción: Para hacer las pruebas con los clientes y cajeras, aquí generamos los clientes y las peliculas y las cajeras.  
+ * Fecha: 13/05/2021
  */
 public class Test {
 
@@ -63,7 +61,7 @@ public class Test {
                  cajs[ne].setTiempo(t/1000);
             System.out.println("5. La cajera " + cajs[ne].getName() + " atendió  a: "+ cajs[ne].getCl().getNombre() +" en "+ cajs[ne].getTiempo() + " segs");
             } catch (InterruptedException ex) {
-                Logger.getLogger(Hilo.class.getName()).log(Level.SEVERE, null, ex);
+                ex.printStackTrace();
             }
         }
         pool.shutdown();
