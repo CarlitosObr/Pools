@@ -17,6 +17,7 @@ public class Cajera implements Runnable {
     private int num_client = 0;
     private Cliente cl;
     private Pelicula[] p;
+private int tiempo;
 
     public Cajera(String name, Cliente cl, Pelicula[] p) {
         this.name = name;
@@ -48,7 +49,7 @@ public class Cajera implements Runnable {
     }
 
     public void setNum_client(int num_client) {
-        this.num_client = num_client;
+        this.num_client += num_client;
     }
 
     public Cliente getCl() {
@@ -59,24 +60,32 @@ public class Cajera implements Runnable {
         this.cl = cl;
     }
 
+    public int getTiempo() {
+        return tiempo;
+    }
+
+    public void setTiempo(int tiempo) {
+        this.tiempo = tiempo;
+    }
+
     public void run() {
         if (!cl.isAtendido()) {
             Random n = new Random();
             int nuevo;
             String salida;
-            salida = "La cajera " + name + " empieza a atender al cliente: " + cl.getNombre() + " --->";
-            salida += "\nPeli-------- " + cl.getNom_peli() + "\nNo. boletos--- " + cl.getCanti_boletos();
+            salida = "1. La cajera " + name + " empieza a atender al cliente: " + cl.getNombre() + " --->";
+            salida += "\n2. Peli-------- " + cl.getNom_peli() + "\n3. No. boletos--- " + cl.getCanti_boletos();
             int total = 0;
             for (int i = 0; i < p.length; i++) {
                 if (cl.getNom_peli().equals(p[i].getNombre())) {
                     total = cl.getCanti_boletos() * p[i].getPrecio_boleto();
                 }
             }
-            salida += "\nTotal--- " + total + "\nLa cajera " + name + " terminó con el cliente: " + cl.getNombre() + " en no se cuanto ";
+            salida += "\n4. Total--- " + total;// + "\nLa cajera " + name + " terminó con el cliente: " + cl.getNombre() + " en no se cuanto ";
             num_client++;
             System.out.println(salida);
             cl.setAtendido(true);
-            //System.out.println("La cajera " + name + " atendió :> " + num_client + " clientes");
+           // System.out.println("La cajera " + name + " atendió :> " + num_client + " clientes");
         }
     }
     

@@ -32,21 +32,35 @@ public class Test {
         ThreadPoolExecutor pool = new ThreadPoolExecutor(cajs.length, cajs.length, 50000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>());
         // Hilo h[] = new Hilo[nTareas];
         Random n = new Random();
-        int ne,pos;
-        
-        while(!clientes.isEmpty()){
+        int ne, pos;
+
+        while (!clientes.isEmpty()) {
             ne = n.nextInt(cajs.length);
-            pos= n.nextInt(clientes.size());
+            pos = n.nextInt(clientes.size());
             //System.out.println("CAJERAS "+ne+" CLIENTES "+clientes.get(pos).getNombre());
             //cajs[ne].setCl(clientes.get(pos));
-            Cajera cajerita = new Cajera(cajs[ne].getName(),p,clientes.get(pos));
+            Cajera cajerita = new Cajera(cajs[ne].getName(), p, clientes.get(pos));
+            cajs[ne].setNum_client(1);
             //Cajera aux = cajerita;
-            
+
             clientes.remove(pos);
             pool.execute(cajerita);
+            try {
+                int t = ((int)(Math.random()*5)+3)*1000;
+                Thread.sleep(t);
+                 cajs[ne].setTiempo(t/1000);
+            System.out.println("5. La cajera " + cajs[ne].getName() + " atendió  en : " + cajs[ne].getTiempo() + " segs");
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Hilo.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         pool.shutdown();
-        
-        
+        if (pool.isShutdown()) {
+            for (int i = 0; i < cajs.length; i++) {
+                System.out.println("-------------------La cajera " + cajs[i].getName() + " atendió :> " + cajs[i].getNum_client() + " clientes");
+            }
+
+        }
+
     }
 }
